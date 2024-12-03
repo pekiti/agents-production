@@ -40,3 +40,16 @@ OpenAI requires you to add a minimum of $5 USD credit to your account. Go to the
 
 > [!NOTE]  
 > It can take up to 20 minutes for the credits to be available via the API. So if you get an `insufficient_quota` error, try again in a few minutes.
+
+## Windows Environments
+The dynamic imports may be incompatible depending on the windows environment, so you may need to run the evals directly. Add the environment import to the top of each eval:
+
+```
+import 'dotenv/config'
+```
+
+Then run the eval with the full path to the file. For example:
+
+```
+npx tsx evals/experiements/reddit.eval.ts
+```
