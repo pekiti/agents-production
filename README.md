@@ -31,3 +31,12 @@ Create an [API Key from OpenAI](https://platform.openai.com/settings/organizatio
 ```
 OPENAI_API_KEY='YOUR_API_KEY'
 ```
+
+![image](https://github.com/user-attachments/assets/64e720ca-e460-4722-b84c-b76968dfcfe9)
+
+OpenAI requires you to add a minimum of $5 USD credit to your account. Go to the [billing page](https://platform.openai.com/settings/organization/billing/overview) and add credits.
+
+![image](https://github.com/user-attachments/assets/6de27e21-8345-48a7-adf9-5dfee3e8e1c9)
+
+> [!NOTE]  
+> It can take up to 20 minutes for the credits to be available via the API. So if you get an `insufficient_quota` error, try again in a few minutes.
