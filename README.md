@@ -1,6 +1,8 @@
+[![Frontend Masters](https://static.frontendmasters.com/assets/brand/logos/full.png)](https://frontendmasters.com/courses/production-ai/)
+
 # Prototype to Production: Advanced AI Apps
 
-- Watch the workshop on [Frontend Masters](https://frontendmasters.com/workshops/advanced-ai-apps/). 
+- Watch the workshop on [Frontend Masters](https://frontendmasters.com/courses/production-ai/). 
 - View the [course notes](https://clumsy-humor-894.notion.site/Agents-in-Production-13754fed51a380da8ca0de6a2361a3a3)
 
 ## Setup Instructions
@@ -40,6 +42,9 @@ OpenAI requires you to add a minimum of $5 USD credit to your account. Go to the
 
 > [!NOTE]  
 > It can take up to 20 minutes for the credits to be available via the API. So if you get an `insufficient_quota` error, try again in a few minutes.
+
+## Upstash Account
+A free [Upstash account](https://upstash.com/) is required for hosting a serverless vector database. The setup is demonstrated in the course. You can find the details [in the course notes](https://clumsy-humor-894.notion.site/3-RAG-13754fed51a38061adbdd038a1224749)
 
 ## Windows Environments
 The dynamic imports may be incompatible depending on the windows environment, so you may need to run the evals directly. Add the environment import to the top of each eval:
