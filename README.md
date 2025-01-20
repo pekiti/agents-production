@@ -56,5 +56,5 @@ import 'dotenv/config'
 Then run the eval with the full path to the file. For example:
 
 ```
-npx tsx evals/experiements/reddit.eval.ts
+npx tsx evals/experiments/reddit.eval.ts
 ```
