@@ -1,4 +1,5 @@
 import { Index as UpstashIndex } from '@upstash/vector'
+import { OpenAIEmbeddings } from '@langchain/openai'
 
 // Initialize Upstash Vector client
 const index = new UpstashIndex({
@@ -18,31 +19,21 @@ type MovieMetadata = {
   metascore?: string
 }
 
-export const queryMovies = async (
-  query: string,
-  filters?: Partial<MovieMetadata>,
-  topK: number = 5
-) => {
-  // Build filter string if filters provided
-  let filterStr = ''
-  if (filters) {
-    const filterParts = Object.entries(filters)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => `${key}='${value}'`)
-
-    if (filterParts.length > 0) {
-      filterStr = filterParts.join(' AND ')
-    }
-  }
-
-  // Query the vector store
-  const results = await index.query({
-    data: query,
-    topK,
-    filter: filterStr || undefined,
-    includeMetadata: true,
-    includeData: true,
+export async function queryMovies(query: string) {
+  // Create embeddings instance
+  const embeddings = new OpenAIEmbeddings({
+    model: "text-embedding-ada-002"
   })
 
+  // Generate embedding for the query
+  const embedding = await embeddings.embedQuery(query)
+  
+  // Search using the generated embedding vector
+  const results = await index.query({
+    vector: embedding,  // Use the embedding vector, not the text
+    topK: 5,
+    includeMetadata: true
+  })
+  
   return results
 }
